@@ -6,7 +6,7 @@ module SessionsHelper
 
   def current_manager
     remember_token = Manager.encrypt(cookies[:remember_token])
-    @current_manager ||= Manager.find_by(rememmber_token: remember_token)
+    @current_manager ||= Manager.find_by(remember_token: remember_token)
   end
 
   def current_manager=(manager)
