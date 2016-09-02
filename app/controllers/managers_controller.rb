@@ -8,7 +8,7 @@ class ManagersController < ApplicationController
     if @manager.save
       sign_in @manager
 #      flash[:success] = "Welcome to the Maager TODO!"
-      redirect_to project_path
+      redirect_to projects_path
     else
 #      flash[:error] = "Some error"
       render 'new'
