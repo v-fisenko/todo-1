@@ -10,6 +10,7 @@ class Manager < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6 }
   has_secure_password
+  has_many :projects
 
   def Manager.new_remember_token
     SecureRandom.urlsafe_base64

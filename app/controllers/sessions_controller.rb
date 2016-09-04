@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
+    redirect_to(projects_path) if signed_in?
   end
 
   def create
@@ -15,6 +16,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    sign_out
+    redirect_to root_path
   end
 
 end

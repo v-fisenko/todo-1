@@ -1,0 +1,21 @@
+<header class="navbar navbar-default navbar-fixed-top ">
+  <div class="container">
+  <div class="navbar-header">
+      <%= link_to "Managers TODO Lists", root_path, id: "logo", class: "navbar-brand" %>
+  </div>
+  <ul class="nav navbar-nav navbar-right">
+    <% if signed_in? %>
+      <li>
+        <em><%= current_manager.name %>
+      </li>
+      <li>
+         <%= link_to "Sign out", signout_path, method: "delete" %>
+      </li>
+    <% else %>
+      <li>
+         <%= link_to "No manager signed", root_path %>
+      </li>
+    <% end %>
+  </ul>
+  </div>
+</header>

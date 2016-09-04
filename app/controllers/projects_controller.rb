@@ -1,8 +1,13 @@
 class ProjectsController < ApplicationController
 
-  before_action :signed_in_manager
+  before_action :signed_in_manager, only: [:index]
 
   def index
+    @projects = current_manager.projects.order('priority')
+  end
+
+  def new
+    @project = Project.new
   end
 
   private
