@@ -8,7 +8,9 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = current_manager.projects.create(project_params)
+    @project = current_manager.projects.new(project_params)
+    @project.priority ||= 1
+    @project.save()
     respond_to do |format|
       format.html { redirect_to projects_path }
       format.js
