@@ -1,5 +1,0 @@
-rails generate controller Sessions
-rails generate controller Managers
-rails generate model Manager name:string email:string password_digest:string remember_token:string
-rails generate controller Projects
-rails generate model Project name:string priority:integer manager_id:integer
