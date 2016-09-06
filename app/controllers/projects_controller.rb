@@ -17,6 +17,19 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def update
+    @project = Project.find_by_id(params[:id])
+    respond_to do |format|
+      if @project.update_attributes(project_params)
+        format.html { redirect_to projects_path }
+        format.json { respond_with_bip(@project) }
+      else
+        format.html { redirect_to projects_path }
+        format.json { respond_with_bip(@project) }
+      end
+    end
+  end
+
   def destroy
     @project = Project.destroy(params[:id])
     respond_to do |format|
