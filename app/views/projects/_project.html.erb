@@ -4,16 +4,36 @@
       <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;
     </div>
     <div class="div-project-name"> 
-      <b> 
-         <%#= project.name %> 
          <%= best_in_place project, :name, :as => :input, :inner_class => "div-project-name-edit",
                                     :activator => "#edit_project_#{project.id}_btn" %>
          <!-- :ok_button => "ok", :ok_button_class => "btn btn-success", :cancel_button => "cancel", :cancel_button_class => "btn btn-warning" --!>
-      </b>
 <!--      <small> ( id:<%= project.id %> , prioriti:<%= project.priority %>) </small> --!>
     </div>
     <div class="div-project-menu-btns" style="color: #fff">
       <%= render "menu_btns", project: project %>
     </div>
   </div>
+  <div class="div-task-new">
+    <%= form_for @task, remote: true do |f| %>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="input-group">
+            <div class="input-group-addon">
+              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            </div>
+            <%= hidden_field_tag(:project_id, project.id) %>
+            <%= f.text_field :name, class: "form-control", required: true, placeholder: "Start typing here to create a task..." %>
+            <div class="input-group-btn">
+              <%= f.submit "Add Task", class: "btn btn-success" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="list-group">
+      Hi!
+      <%= render project.task %>
+  </div>
+
 </div> 

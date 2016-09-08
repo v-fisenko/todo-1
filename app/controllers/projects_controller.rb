@@ -5,6 +5,7 @@ class ProjectsController < ApplicationController
   def index
     @projects = current_manager.projects.order('priority')
     @project = Project.new
+    @task = Task.new
   end
 
   def create

@@ -1,6 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap"; 
 
+@-moz-document url-prefix() {
+  fieldset { display: table-cell; }
+}
+
 body {
   padding-top: 60px;
   background: url('http://wallpaperlayer.com/img/2015/6/simple-gray-background-8449-8772-hd-wallpapers.jpg') no-repeat center center fixed;
@@ -35,3 +39,10 @@ body {
   }
 }
 
+.div-task-new {
+  padding: 3px;
+  background-color: #ddd;
+}
+.input-group-addon{
+  color: #5ca85c;
+}
